@@ -1,0 +1,112 @@
+# ============= Soal No 1 =================
+
+def output(one, two):
+    return f"The number is {one}", f"The number is {two}"
+
+res1, res2 = output("Even", "Odd")
+print(res1)
+print(res2)
+
+
+# ============== Soal No 2 =================
+
+def check_number(num):
+    if num > 0:
+        return "The number is Positive"
+    elif num < 0:
+        return "The number is Negative"
+    else:
+        return "The number is Zero"
+
+print(check_number(10))  
+print(check_number(-5))   
+print(check_number(0))    
+
+# ================== Soal No 3 =================
+
+def check_anagrams(str1, str2):
+    return sorted(str1.lower()) == sorted(str2.lower())
+
+print(check_anagrams("listen", "silent"))  # True
+print(check_anagrams("hello", "world"))    # False
+ 
+
+# =================== Soal No 4 =================
+
+def factorial(n):
+    if n < 0:
+        return "Tidak ada faktorial untuk bilangan negatif"
+    result = 1
+    for i in range(1, n+1):
+        result *= i
+    return result
+
+print(factorial(5))  
+print(factorial(0)) 
+
+# ==================== Soal No 5 ===================
+
+def is_palindrome(s):
+    return s == s[::-1]
+
+print(is_palindrome("racecar"))  
+print(is_palindrome("python"))   
+print(is_palindrome("habibah"))  
+
+# ==================== Soal No 6 ===================
+
+def is_armstrong(n):
+    return n == sum(int(digit) ** len(str(n)) for digit in str(n))
+
+print(is_armstrong(153))  
+print(is_armstrong(370))  
+print(is_armstrong(123))  
+
+# =================== Soal No 7 ======================
+
+class BankAccount:
+    def __init__(self, name):
+        self.name = name
+        self.balance = 0
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+            return f"Deposited {amount}. New balance: {self.balance}"
+        else:
+            return "Invalid deposit amount"
+
+    def withdraw(self, amount):
+        if amount > 0 and amount <= self.balance:
+            self.balance -= amount
+            return f"Withdrew {amount}. New balance: {self.balance}"
+        else:
+            return "Invalid withdrawal amount or insufficient funds"
+
+account = BankAccount("Name")
+print(account.deposit(1000))   
+print(account.withdraw(500))   
+print(account.withdraw(600))  
+
+# ===================== Soal No 8 ===============
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+        self.grades = [] 
+
+    def add_grade(self, grade):
+        self.grades.append(grade)
+        return f"Grade {grade} added."
+
+    def get_average(self):
+        if len(self.grades) == 0:
+            return "No grades available."
+        avg = sum(self.grades) / len(self.grades)
+        return f"Average grade: {avg}"
+
+student = Student("Alice")
+print(student.add_grade(90)) 
+print(student.add_grade(80))  
+print(student.add_grade(70))  
+print(student.get_average())  
